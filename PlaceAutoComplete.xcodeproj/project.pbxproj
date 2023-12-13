@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		BF2115132B285F2F006C1241 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2115122B285F2F006C1241 /* AppDelegate.swift */; };
 		BF2115152B285F2F006C1241 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2115142B285F2F006C1241 /* SceneDelegate.swift */; };
-		BF2115172B285F2F006C1241 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2115162B285F2F006C1241 /* ViewController.swift */; };
+		BF2115172B285F2F006C1241 /* PreviousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2115162B285F2F006C1241 /* PreviousViewController.swift */; };
 		BF21151A2B285F2F006C1241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2115182B285F2F006C1241 /* Main.storyboard */; };
 		BF21151D2B285F2F006C1241 /* PlaceAutoComplete.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF21151B2B285F2F006C1241 /* PlaceAutoComplete.xcdatamodeld */; };
 		BF21151F2B285F30006C1241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF21151E2B285F30006C1241 /* Assets.xcassets */; };
 		BF2115222B285F30006C1241 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2115202B285F30006C1241 /* LaunchScreen.storyboard */; };
 		BF21152A2B286707006C1241 /* GooglePlacesAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2115292B286707006C1241 /* GooglePlacesAutocomplete.swift */; };
 		BF21152C2B286728006C1241 /* ModelCalss.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21152B2B286728006C1241 /* ModelCalss.swift */; };
+		BF21152F2B2887BE006C1241 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21152E2B2887BE006C1241 /* ViewController.swift */; };
 		BF8C80E7385021D04A3AFC49 /* Pods_PlaceAutoComplete.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086DC8CE603FBC00CB605C61 /* Pods_PlaceAutoComplete.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +27,7 @@
 		BF21150F2B285F2F006C1241 /* PlaceAutoComplete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceAutoComplete.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2115122B285F2F006C1241 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF2115142B285F2F006C1241 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF2115162B285F2F006C1241 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF2115162B285F2F006C1241 /* PreviousViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousViewController.swift; sourceTree = "<group>"; };
 		BF2115192B285F2F006C1241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF21151C2B285F2F006C1241 /* PlaceAutoComplete.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlaceAutoComplete.xcdatamodel; sourceTree = "<group>"; };
 		BF21151E2B285F30006C1241 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +35,7 @@
 		BF2115232B285F30006C1241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF2115292B286707006C1241 /* GooglePlacesAutocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesAutocomplete.swift; sourceTree = "<group>"; };
 		BF21152B2B286728006C1241 /* ModelCalss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCalss.swift; sourceTree = "<group>"; };
+		BF21152E2B2887BE006C1241 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,16 +90,25 @@
 			children = (
 				BF2115122B285F2F006C1241 /* AppDelegate.swift */,
 				BF2115142B285F2F006C1241 /* SceneDelegate.swift */,
-				BF2115162B285F2F006C1241 /* ViewController.swift */,
+				BF21152D2B2886B5006C1241 /* previous */,
 				BF2115182B285F2F006C1241 /* Main.storyboard */,
 				BF21151E2B285F30006C1241 /* Assets.xcassets */,
 				BF2115202B285F30006C1241 /* LaunchScreen.storyboard */,
 				BF2115232B285F30006C1241 /* Info.plist */,
 				BF21151B2B285F2F006C1241 /* PlaceAutoComplete.xcdatamodeld */,
-				BF2115292B286707006C1241 /* GooglePlacesAutocomplete.swift */,
-				BF21152B2B286728006C1241 /* ModelCalss.swift */,
+				BF21152E2B2887BE006C1241 /* ViewController.swift */,
 			);
 			path = PlaceAutoComplete;
+			sourceTree = "<group>";
+		};
+		BF21152D2B2886B5006C1241 /* previous */ = {
+			isa = PBXGroup;
+			children = (
+				BF21152B2B286728006C1241 /* ModelCalss.swift */,
+				BF2115292B286707006C1241 /* GooglePlacesAutocomplete.swift */,
+				BF2115162B285F2F006C1241 /* PreviousViewController.swift */,
+			);
+			path = previous;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,7 +122,7 @@
 				BF21150B2B285F2F006C1241 /* Sources */,
 				BF21150C2B285F2F006C1241 /* Frameworks */,
 				BF21150D2B285F2F006C1241 /* Resources */,
-				9D3EABEF79A0C352169C4CD0 /* [CP] Embed Pods Frameworks */,
+				7A2B335ED91FF0B15C105505 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,21 +180,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9D3EABEF79A0C352169C4CD0 /* [CP] Embed Pods Frameworks */ = {
+		7A2B335ED91FF0B15C105505 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PlaceAutoComplete/Pods-PlaceAutoComplete-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-PlaceAutoComplete/Pods-PlaceAutoComplete-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PlaceAutoComplete/Pods-PlaceAutoComplete-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-PlaceAutoComplete/Pods-PlaceAutoComplete-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlaceAutoComplete/Pods-PlaceAutoComplete-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlaceAutoComplete/Pods-PlaceAutoComplete-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0A96EE66675E1B8A6159B83 /* [CP] Check Pods Manifest.lock */ = {
@@ -216,9 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF21152A2B286707006C1241 /* GooglePlacesAutocomplete.swift in Sources */,
-				BF2115172B285F2F006C1241 /* ViewController.swift in Sources */,
+				BF2115172B285F2F006C1241 /* PreviousViewController.swift in Sources */,
 				BF21151D2B285F2F006C1241 /* PlaceAutoComplete.xcdatamodeld in Sources */,
 				BF2115132B285F2F006C1241 /* AppDelegate.swift in Sources */,
+				BF21152F2B2887BE006C1241 /* ViewController.swift in Sources */,
 				BF21152C2B286728006C1241 /* ModelCalss.swift in Sources */,
 				BF2115152B285F2F006C1241 /* SceneDelegate.swift in Sources */,
 			);

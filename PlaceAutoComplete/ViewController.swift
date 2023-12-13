@@ -1,72 +1,69 @@
-//
-//  ViewController.swift
-//  PlaceAutoComplete
-//
-//  Created by Refat E Ferdous on 12/12/23.
-//
-
 import UIKit
+import GooglePlaces
 
 class ViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
-    let searchController = UISearchController(searchResultsController: nil)
-    var autocompleteResults: [Place] = []
-    let googlePlacesAutocomplete = GooglePlacesAutocomplete(apiKey: "AIzaSyBgOAZqposbLWbFafJhvCTfZLunOFF6Vu4")
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        setupSearchController()
-        setupTableView()
-    }
-    
-    func setupSearchController() {
-            searchController.searchResultsUpdater = self
-            searchController.obscuresBackgroundDuringPresentation = false
-            searchController.searchBar.placeholder = "Search for a place"
-            navigationItem.searchController = searchController
-            definesPresentationContext = true
-        }
-    func setupTableView() {
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.tableFooterView = UIView() // Remove empty cell separators
-        }
+  override func viewDidLoad() {
+    makeButton()
+  }
+
+  // Present the Autocomplete view controller when the button is pressed.
+  @objc func autocompleteClicked(_ sender: UIButton) {
+    let autocompleteController = GMSAutocompleteViewController()
+    autocompleteController.delegate = self
+
+    // Specify the place data types to return.
+    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt64(GMSPlaceField.name.rawValue) |
+      UInt64(GMSPlaceField.placeID.rawValue))
+    autocompleteController.placeFields = fields
+
+    // Specify a filter.
+    let filter = GMSAutocompleteFilter()
+      filter.type = .city
+    autocompleteController.autocompleteFilter = filter
+
+    // Display the autocomplete view controller.
+    present(autocompleteController, animated: true, completion: nil)
+  }
+
+  // Add a button to the view.
+  func makeButton() {
+    let btnLaunchAc = UIButton(frame: CGRect(x: 5, y: 150, width: 300, height: 35))
+    btnLaunchAc.backgroundColor = .blue
+    btnLaunchAc.setTitle("Launch autocomplete", for: .normal)
+    btnLaunchAc.addTarget(self, action: #selector(autocompleteClicked), for: .touchUpInside)
+    self.view.addSubview(btnLaunchAc)
+  }
+
 }
 
-extension ViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let query = searchController.searchBar.text, !query.isEmpty else {
-            autocompleteResults = []
-            tableView.reloadData()
-            return
-        }
+extension ViewController: GMSAutocompleteViewControllerDelegate {
 
-        googlePlacesAutocomplete.getAutocompleteResults(query: query) { [weak self] places in
-            self?.autocompleteResults = places
-            self?.tableView.reloadData()
-        }
-    }
+  // Handle the user's selection.
+  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+    print("Place name: \(place.name)")
+    print("Place ID: \(place.placeID)")
+    print("Place attributions: \(place.attributions)")
+    dismiss(animated: true, completion: nil)
+  }
+
+  func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+    // TODO: handle the error.
+    print("Error: ", error.localizedDescription)
+  }
+
+  // User canceled the operation.
+  func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+    dismiss(animated: true, completion: nil)
+  }
+
+  // Turn the network activity indicator on and off again.
+  func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+  }
+
+  func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+  }
+
 }
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return autocompleteResults.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceCell", for: indexPath)
-        let place = autocompleteResults[indexPath.row]
-        cell.textLabel?.text = place.description
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle the selected place, if needed
-        let selectedPlace = autocompleteResults[indexPath.row]
-        print("Selected Place: \(selectedPlace.description)")
-    }
-}
-
